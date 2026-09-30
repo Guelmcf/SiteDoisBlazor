@@ -1,0 +1,35 @@
+@page "/media"
+@rendermode InteractiveServer
+
+<h1>Calculadora de Média</h1>
+<label for="nota1">Nota 1:</label>
+<input type="number" @bind="nota1" placeholder="Nota 1" />
+<label for="nota2">Nota 2:</label>
+<input type="number" @bind="nota2" placeholder="Nota 2" />
+<button @onclick="CalcularMedia">Calcular Média</button>
+
+<h2>Média: @media</h2>
+<h2>Resultado: @resultado</h2>
+
+@code{
+    private double nota1;
+    private double nota2;
+    private double media;
+    private string resultado = "";
+
+    private void CalcularMedia()
+    {
+        media = (nota1 + nota2) / 2;
+
+
+        if (media >= 7)
+    {
+        resultado = "Aprovado";
+    }
+    else
+    {
+        resultado = "Reprovado";
+    }
+    }
+
+}
